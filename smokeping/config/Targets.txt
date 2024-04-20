@@ -1,0 +1,500 @@
+*** Targets ***
+
+probe = FPing
+
+menu = Top
+title = ping.mertcangokgoz.com
+remark = Deluxe latency measurement tool. It can measure, store and display latency, latency distribution and packet loss
+
++ DNS-Root-Servers
+menu = Root DNS Servers
+title = Root DNS Servers
+probe = DNS
+
+++ f-root-servers-net
+menu = f.root-servers.net
+title = f.root-servers.net
+host = f.root-servers.net
+
+++ e-root-servers-net
+menu = e.root-servers.net
+title = e.root-servers.net
+host = e.root-servers.net
+
+++ d-root-servers-net
+menu = d.root-servers.net
+title = d.root-servers.net
+host = d.root-servers.net
+
+++ j-root-servers-net
+menu = j.root-servers.net
+title = j.root-servers.net
+host = j.root-servers.net
+
+++ h-root-servers-net
+menu = h.root-servers.net
+title = h.root-servers.net
+host = h.root-servers.net
+
+++ i-root-servers-net
+menu = i.root-servers.net
+title = i.root-servers.net
+host = i.root-servers.net
+
+++ a-root-servers-net
+menu = a.root-servers.net
+title = a.root-servers.net
+host = a.root-servers.net
+
+++ l-root-servers-net
+menu = l.root-servers.net
+title = l.root-servers.net
+host = l.root-servers.net
+
+++ k-root-servers-net
+menu = k.root-servers.net
+title = k.root-servers.net
+host = k.root-servers.net
+
+++ c-root-servers-net
+menu = c.root-servers.net
+title = c.root-servers.net
+host = c.root-servers.net
+
+++ b-root-servers-net
+menu = b.root-servers.net
+title = b.root-servers.net
+host = b.root-servers.net
+
+++ m-root-servers-net
+menu = m.root-servers.net
+title = m.root-servers.net
+host = m.root-servers.net
+
+++ g-root-servers-net
+menu = g.root-servers.net
+title = g.root-servers.net
+host = g.root-servers.net
+
++ Public-DNS-Servers
+menu = Public DNS Server
+title = Public DNS Server
+probe = DNS
+
+++ GoogleDNS
+menu = Google DNS
+title = Google DNS
+host = 8.8.8.8
+
+++ OpenDNS
+menu = Open DNS
+title = Open DNS
+host = 208.67.222.222
+
+++ CloudflareDNS
+menu = Cloudflare DNS
+title = Cloudflare DNS
+host = 1.1.1.1
+
+++ Level3
+menu = Level3
+title = Level3 DNS
+host = 4.2.2.1
+
+++ Quad9
+menu = Quad9
+title = Quad9 DNS
+host = 9.9.9.9
+
+++ ControlD
+menu = ControlD
+title = ControlD DNS
+host = 76.76.2.0
+
+++ AdGuardDNS
+menu = AdGuard DNS
+title = AdGuard DNS
+host = 94.140.14.14
+
+++ CleanBrowsingDNS
+menu = CleanBrowsing DNS
+title = CleanBrowsing DNS
+host = 185.228.168.9
+
+++ ComodoDNS
+menu = Comodo DNS
+title = Comodo DNS
+host = 8.26.56.26
+
+++ DNSFilter
+menu = DNSFilter
+title = DNSFilter
+host = 103.247.36.36
+
+++ UltraDNS
+menu = UltraDNS
+title = UltraDNS
+host = 64.6.64.6
+
+++ SafeDNS
+menu = SafeDNS
+title = SafeDNS
+host = 195.46.39.39
+
+++ Flashstart
+menu = Flashstart
+title = Flashstart
+host = 185.236.104.104
+
+++ Freenom-World
+menu = Freenom DNS
+title = Freenom DNS
+host = 80.80.80.80
+
+++ AlternateDNS
+menu = Alternate DNS
+title = Alternate DNS
+host = 76.76.19.19
+
+++ GCore
+menu = GCore
+title = GCore
+host = 95.85.95.85
+
+++ NextDNS
+menu = NextDNS
+title = NextDNS
+host = 45.90.28.1
+
+++ YandexDNS
+menu = Yandex DNS
+title = Yandex DNS
+host = 77.88.8.8
+
+++ NortonDNS
+menu = Norton DNS
+title = Norton DNS
+host = 199.85.126.10
+
+++ Verisign
+menu = Verisign DNS
+title = Verisign DNS
+host = 64.6.64.6
+
+++ Neustar
+menu = Neustar DNS
+title = Neustar DNS
+host = 156.154.70.1
+
+++ DNSPod
+menu = DNSPod
+title = DNSPod
+host = 119.29.29.29
+
+++ Hurricane-Electric
+menu = Hurricane DNS
+title = Hurricane DNS
+host = 74.82.42.42
+
+++ DNS-Sb
+menu = DNS.SB
+title = DNS.SB
+host = 185.222.222.222
+
+++ DNS-Watch
+menu = DNS.WATCH
+title = DNS.WATCH
+host = 84.200.69.80
+
++ Turkiye
+menu = Turkiye
+title = Turkiye
+
+++ adanet
+menu = adanet
+title = adanet
+host = ada.net.tr
+
+++ aerotek
+menu = aerotek
+title = aerotek
+host = aerotek.com.tr
+
+++ alastyr
+menu = alastyr
+title = alastyr
+host = alastyr.com
+
+++ bulutistan
+menu = bulutistan
+title = bulutistan
+host = bulutistan.com
+
+++ cenuta
+menu = cenuta
+title = cenuta
+host = cenuta.com
+
+++ codit
+menu = codit
+title = codit
+host = codit.com.tr
+
+++ comnet
+menu = comnet
+title = comnet
+host = comnet.com.tr
+
+++ datatelekom
+menu = datatelekom
+title = datatelekom
+host = datatelekom.com
+
+++ datatr-com-tr
+menu = datatr
+title = datatr
+host = datatr.com.tr
+
+++ dhscomtr
+menu = dhscomtr
+title = dhs
+host = 188.132.193.80
+
+++ domainhizmetleri-com
+menu = domainhizmetleri
+title = domainhizmetleri
+host = domainhizmetleri.com
+
+++ datafon
+menu = datafon
+title = datafon
+host = datafon.net.tr
+
+++ datacasa
+menu = datacasa
+title = datacasa
+host = datacasa.com.tr
+
+++ dorabase
+menu = dorabase
+title = dorabase
+host = dorabase.com
+
+++ 3c1b
+menu = 3c1b
+title = 3c1b
+host = 37.202.48.2
+
+++ gibir
+menu = gibir
+title = gibir
+host = gibir.net.tr
+
+++ goknet
+menu = goknet
+title = goknet
+host = goknet.com.tr
+
+++ kapteyan
+menu = kapteyan
+title = kapteyan
+host = kapteyan.com.tr
+
+++ netdirekt
+menu = netdirekt
+title = netdirekt
+host = netdirekt.com.tr
+
+++ netinternet
+menu = netinternet
+title = netinternet
+host = netinternet.com.tr
+
+++ ngn
+menu = ngn
+title = ngn
+host = 185.200.28.10
+
+++ premierdc
+menu = premierdc
+title = premier dc
+host = ping.sh.com.tr
+
+++ intibu
+menu = intibu
+title = intibu
+host = intibu.com
+
+++ radore
+menu = radore
+title = radore
+host = radore.com
+
+++ ramtek
+menu = ramtek
+title = ramtek
+host = ramtek.net.tr
+
+++ teknotel
+menu = teknotel
+title = teknotel
+host = lg.teknotel.com
+
+++ tisparkle
+menu = tisparkle
+title = ti sparkle
+host = ns1.mednautilus.com.tr
+
+++ teknet
+menu = teknet
+title = teknet
+host = tek.net.tr
+
+++ turktelekom
+menu = turktelekom
+title = turktelekom
+host = 195.175.39.39
+
+++ turksat
+menu = turksat
+title = turksat
+host = 46.197.32.1
+
+++ tresteknoloji
+menu = tresteknoloji
+title = tresteknoloji
+host = tresteknoloji.com
+
+++ veriteknik
+menu = veriteknik
+title = veriteknik
+host = veriteknik.net.tr
+
+++ yoncu
+menu = yoncu
+title = yoncu
+host = lg.yoncu.com
+
+++ bewolkdc
+menu = bewolkdc
+title = bewolkdc
+host = bewolkdc.com
+
+++ pendc
+menu = pendc
+title = pendc
+host = 212.98.224.220
+
+++ verinomi
+menu = verinomi
+title = verinomi
+host = verinomi.com
+
+++ serverplus
+menu = serverplus
+title = serverplus
+host = 193.36.63.1
+
+++ talido
+menu = talido
+title = talido
+host = 194.36.84.228
+
+++ virtara
+menu = virtara
+title = virtara
+host = 5.250.253.164
+
+++ esnek
+menu = esnek
+title = esnek
+host = 185.103.196.1
+
+++ hstixo
+menu = Hostixo
+title = Hostixo
+host = 213.238.168.70
+
+++ webhane
+menu = WebHane
+title = WebHane
+host = 176.235.153.26
+
+++ netbone
+menu = netbone
+title = netbone
+host = 45.94.148.1
+
+++ netbone-net
+menu = netbone-net
+title = netbone-net
+host = 45.94.149.1
+
+++ netlen
+menu = netlen
+title = netlen
+host = netlen.com
+
+++ netmax
+menu = netmax
+title = netmax
+host = netmax.com.tr
+
++ Turkiye-top-10-domain
+menu = Turkiye Top 10 Domain
+title = Turkiye Top 10 Domain
+
+++ google-com
+menu = google.com
+title = google.com
+host = google.com
+
+++ microsoft-com
+menu = microsoft.com
+title = microsoft.com
+host = microsoft.com
+
+++ facebook-com
+menu = facebook.com
+title = facebook.com
+host = facebook.com
+
+++ apple-com
+menu = apple.com
+title = apple.com
+host = apple.com
+
+++ amazon-com-tr
+menu = amazon.com.tr
+title = amazon.com.tr
+host = amazon.com.tr
+
+++ youtube-com
+menu = youtube.com
+title = youtube.com
+host = youtube.com
+
+++ instagram-com
+menu = instagram.com
+title = instagram.com
+host = instagram.com
+
+++ whatsapp-net
+menu = whatsapp.net
+title = whatsapp.net
+host = whatsapp.net
+
+++ spotify-com
+menu = spotify.com
+title = spotify.com
+host = spotify.com
+
+++ live-com
+menu = live.com
+title = live.com
+host = live.com
+
+++ tiktok-com
+menu = tiktok.com
+title = tiktok.com
+host = tiktok.com

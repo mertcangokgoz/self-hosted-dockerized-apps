@@ -1,0 +1,26 @@
+---
+services:
+  smokeping:
+    image: lscr.io/linuxserver/smokeping:latest
+    container_name: smokeping
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/Istanbul
+      - CACHE_DIR=/tmp
+    volumes:
+      - type: bind
+        source: ./config/Targets.txt
+        target: /config/Targets
+      - type: bind
+        source: ./config/Probes.txt
+        target: /config/Probes
+      - type: bind
+        source: ./config/General.txt
+        target: /config/General
+      - smokeping-data:/data
+    ports:
+      - 127.0.0.1:8001:80
+    restart: unless-stopped
+volumes:
+  smokeping-data: null
