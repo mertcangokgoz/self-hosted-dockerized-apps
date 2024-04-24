@@ -1,0 +1,33 @@
+---
+services:
+  db:
+    image: mariadb:latest
+    volumes:
+      - db_data:/var/lib/mysql
+    env_file:
+      - ./.env
+    restart: always
+    networks:
+      - glpi-net
+  glpi:
+    restart: always
+    ports:
+      - '80:80'
+    image: elestio/glpi:latest
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - TIMEZONE=Europe/Istanbul
+    networks:
+      - glpi-net
+
+volumes:
+  db_data:
+
+networks:
+  glpi-net: {}

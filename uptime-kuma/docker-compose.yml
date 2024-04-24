@@ -1,0 +1,17 @@
+---
+services:
+  uptime:
+    image: louislam/uptime-kuma:latest
+    volumes:
+      - data:/app/data
+    restart: always
+    networks:
+      - uptime-network
+    ports:
+      - '3001:3001'
+
+networks:
+  uptime-network: { }
+
+volumes:
+  data:
