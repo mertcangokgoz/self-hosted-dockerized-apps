@@ -4,16 +4,8 @@ services:
     image: lscr.io/linuxserver/speedtest-tracker:latest
     ports:
       - '8080:80'
-    environment:
-      - PUBLIC_DASHBOARD=false
-      - PUID=1000
-      - PGID=1000
-      - DB_CONNECTION=pgsql
-      - DB_HOST=db
-      - DB_PORT=5432
-      - DB_DATABASE=speedtest_tracker
-      - DB_USERNAME=<username>
-      - DB_PASSWORD=<password>
+    env_file:
+      - ./.env
     volumes:
       - speedtest-config:/config
     restart: unless-stopped
@@ -22,10 +14,8 @@ services:
   db:
     image: postgres:latest
     restart: always
-    environment:
-      - POSTGRES_DB=speedtest_tracker
-      - POSTGRES_USER=<username>
-      - POSTGRES_PASSWORD=<password>
+    env_file:
+      - ./.env
     volumes:
       - speedtest-db:/var/lib/postgresql/data
 volumes:

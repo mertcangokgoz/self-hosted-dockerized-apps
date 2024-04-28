@@ -1,0 +1,41 @@
+{
+    "url": "https://<domain>",
+    "server": {
+        "port": 2368,
+        "host": "0.0.0.0"
+    },
+    "database": {
+        "client": "mysql",
+        "connection": {
+            "host": "database",
+            "user": "<user>",
+            "password": "<password>",
+            "database": "<database>",
+            "charset": "utf8"
+        }
+    },
+    "mail": {
+        "transport": "SMTP",
+        "options": {
+            "host": "email-smtp.us-west-1.amazonaws.com",
+            "port": 2465,
+            "secure": true,
+            "service": "SES",
+            "from": "'Mertcan GÖKGÖZ' <noreply@gokgoz.net>",
+            "auth": {
+                "user": "access-key",
+                "pass": "secret-access-key"
+            }
+        }
+    },
+    "logging": {
+        "transports": [
+            "file",
+            "stdout"
+        ]
+    },
+    "process": "systemd",
+    "paths": {
+        "contentPath": "/var/lib/ghost/content"
+    }
+}

@@ -3,7 +3,7 @@ services:
   uptime:
     image: louislam/uptime-kuma:latest
     volumes:
-      - data:/app/data
+      - ./data:/app/data
     restart: always
     networks:
       - uptime-network

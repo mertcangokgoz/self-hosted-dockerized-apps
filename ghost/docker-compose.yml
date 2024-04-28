@@ -1,0 +1,23 @@
+services:
+  ghost:
+    image: ghost:latest
+    restart: on-failure
+    depends_on:
+      - database
+    env_file:
+      - ./.env
+    volumes:
+      - ./content:/var/lib/ghost/content
+      - ./config.production.json:/var/lib/ghost/config.production.json
+    ports:
+      - 2368:2368
+  
+  database:
+    image: mysql:latest
+    restart: on-failure
+    env_file:
+      - ./.env
+    volumes:
+      - ./data:/var/lib/mysql
+    ports:
+      - 3306:3306
