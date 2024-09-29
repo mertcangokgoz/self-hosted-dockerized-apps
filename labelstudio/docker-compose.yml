@@ -1,0 +1,67 @@
+services:
+    labelstudio:
+        image: heartexlabs/label-studio:latest
+        restart: unless-stopped
+        volumes:
+            - labelstudio-data:/label-studio/data:rw
+            - labelstudio-data:/label-studio/files:rw
+        ports:
+            - "8080:8080"
+        depends_on:
+            - db
+        networks:
+            - labelstudio-net
+        env_file:
+          POSTGRES_HOST=db
+          POSTGRES_PORT=5432
+          POSTGRES_DB=labelstudio
+          POSTGRES_USER=changeme
+          POSTGRES_PASSWORD=changeme
+          SECRET_KEY=changeme
+          DJANGO_DB=default
+          POSTGRE_HOST=db
+          POSTGRE_PORT=changeme
+          POSTGRE_NAME=labelstudio
+          POSTGRE_PASSWORD=changeme
+          POSTGRES_HOST_AUTH_METHOD=trust
+          LABEL_STUDIO_DISABLE_SIGNUP_WITHOUT_LINK=true
+          LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
+          LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/label-studio/files
+          LABEL_STUDIO_USERNAME=changeme
+          LABEL_STUDIO_PASSWORD=changeme
+    db:
+        image: postgres:latest
+        restart: unless-stopped
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+        healthcheck:
+            test: /usr/bin/pg_isready -U "postgres"
+            interval: 5s
+            timeout: 10s
+            retries: 120
+        networks:
+            - labelstudio-net
+        env_file:
+          POSTGRES_HOST=db
+          POSTGRES_PORT=5432
+          POSTGRES_DB=labelstudio
+          POSTGRES_USER=changeme
+          POSTGRES_PASSWORD=changeme
+          SECRET_KEY=changeme
+          DJANGO_DB=default
+          POSTGRE_HOST=db
+          POSTGRE_PORT=changeme
+          POSTGRE_NAME=labelstudio
+          POSTGRE_PASSWORD=changeme
+          POSTGRES_HOST_AUTH_METHOD=trust
+          LABEL_STUDIO_DISABLE_SIGNUP_WITHOUT_LINK=true
+          LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
+          LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/label-studio/files
+          LABEL_STUDIO_USERNAME=changeme
+          LABEL_STUDIO_PASSWORD=changeme
+volumes:
+    pgdata:
+    labelstudio-data:
+
+networks:
+    labelstudio-net: { }

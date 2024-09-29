@@ -1,0 +1,82 @@
+services:
+  opensearch:
+    image: "opensearchproject/opensearch:2.12.0"
+    environment:
+      - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
+      - "bootstrap.memory_lock=true"
+      - "discovery.type=single-node"
+      - "action.auto_create_index=false"
+      - "plugins.security.ssl.http.enabled=false"
+      - "plugins.security.disabled=true"
+      - "OPENSEARCH_INITIAL_ADMIN_PASSWORD=changeme"
+    ulimits:
+      memlock:
+        hard: -1
+        soft: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - ./os_data/:/usr/share/opensearch/data
+    restart: always
+    networks:
+      - graylog-network
+
+  mongodb:
+    image: mongo:6.0.14
+    volumes:
+      - "./mongodb_data/:/data/db"
+    restart: always
+    networks:
+      - graylog-network
+
+  graylog:
+    image: "graylog/graylog:6.0.5"
+    hostname: graylog
+    restart: always
+    environment:
+      - GRAYLOG_PASSWORD_SECRET=changeme
+      - GRAYLOG_ROOT_PASSWORD_SHA2=changeme
+      - GRAYLOG_HTTP_EXTERNAL_URI=http://0.0.0.0:9002/
+      - GRAYLOG_HTTP_BIND_ADDRESS=0.0.0.0:9000
+      - GRAYLOG_ELASTICSEARCH_HOSTS=http://opensearch:9200
+      - GRAYLOG_MONGODB_URI=mongodb://mongodb:27017/graylog
+      - GRAYLOG_REPORT_DISABLE_SANDBOX=true
+      - GRAYLOG_PROMETHEUS_EXPORTER_ENABLED=true
+      - GRAYLOG_PROMETHEUS_EXPORTER_BIND_ADDRESS=0.0.0.0:9833
+      - GRAYLOG_HTTP_ENABLE_GZIP=true
+      - GRAYLOG_TRANSPORT_EMAIL_ENABLED=true
+      - GRAYLOG_TRANSPORT_EMAIL_HOSTNAME=changeme
+      - GRAYLOG_TRANSPORT_EMAIL_PORT=changeme
+      - GRAYLOG_TRANSPORT_EMAIL_USE_AUTH=true
+      - GRAYLOG_TRANSPORT_EMAIL_USE_TLS=true
+      - GRAYLOG_TRANSPORT_EMAIL_USE_SSL=false
+      - GRAYLOG_TRANSPORT_EMAIL_AUTH_USERNAME=changeme
+      - GRAYLOG_TRANSPORT_EMAIL_AUTH_PASSWORD=changeme
+      - GRAYLOG_TRANSPORT_EMAIL_DEFAULT_SUBJECT_PREFIX=changeme
+      - GRAYLOG_TRANSPORT_EMAIL_FROM_EMAIL=changeme
+      - GRAYLOG_TRANSPORT_EMAIL_WEB_INTERFACE_URL=changeme
+    entrypoint: /usr/bin/tini -- wait-for-it opensearch:9200 --  /docker-entrypoint.sh
+    depends_on:
+      - mongodb
+      - opensearch
+    ports:
+      - "5044:5044/tcp"   # Beats
+      - "5140:5140/tcp"   # Syslog TCP
+      - "5140:5140/udp"   # Syslog UDP
+      - "5555:5555/tcp"   # RAW TCP
+      - "5555:5555/udp"   # RAW TCP
+      - "127.0.0.1:9002:9000/tcp"   # Server API
+      - "9833:9833/tcp"   # Prometheus Exporter
+      - "12201:12201/tcp" # GELF TCP
+      - "12201:12201/udp" # GELF UDP
+      - "13301:13301/tcp" # Forwarder data
+      - "13302:13302/tcp" # Forwarder config
+    volumes:
+      - ./graylog_data/:/usr/share/graylog/data/data
+      - ./graylog_journal/:/usr/share/graylog/data/journal
+    networks:
+      - graylog-network
+
+networks:
+  graylog-network: { }

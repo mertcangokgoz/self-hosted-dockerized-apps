@@ -1,0 +1,17 @@
+services:
+  stirling-pdf:
+    image: frooodle/s-pdf:latest
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:3002:8080'
+    volumes:
+      - ./trainingData:/usr/share/tessdata #Required for extra OCR languages
+      - ./extraConfigs:/configs
+      - ./logs:/logs/
+    environment:
+      - DOCKER_ENABLE_SECURITY=true
+      - INSTALL_BOOK_AND_ADVANCED_HTML_OPS=false
+      - SECURITY_ENABLE_LOGIN=true
+      - SECURITY_INITIALLOGIN_USERNAME=mertcan
+      - SECURITY_INITIALLOGIN_PASSWORD=changeme
+      - LANGS=tr_TR
